@@ -1,0 +1,159 @@
+\documentclass[a4paper,12pt]{article} % This dfines the style of your paper
+\usepackage[top = 2.5cm, bottom = 2.5cm, left = 2.5cm, right = 2.5cm]{geometry} 
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{multirow} % Multirow is for tables with multiple rows within one cell.
+\usepackage{booktabs} % For even nicer tables.
+\usepackage{graphicx} 
+\usepackage{setspace}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\setlength{\parindent}{0in}
+\usepackage{float}
+\usepackage{fancyhdr}
+\pagestyle{fancy} % With this command we can customize the header style.
+\fancyhf{} % This makes sure we do not have other information in our header or footer.
+
+\lhead{\footnotesize Graded Assignment: Week 6}% \lhead puts text in the top left corner. \footnotesize sets our font to a smaller size.
+
+\rhead{\footnotesize Jaidev Deshpande (Roll No: 21F1003751)} %<---- Fill in your lastnames.
+\cfoot{\footnotesize \thepage} 
+
+\begin{document}
+
+\thispagestyle{empty} % This command disables the header on the first page. 
+
+\begin{tabular}{p{15.5cm}} % This is a simple tabular environment to align your text nicely 
+{\large \bf Mathematical Thinking} \\
+BS In Data Science \& Applications  \\ Sept 2023 Term  \\ IIT Madras\\
+\hline % \hline produces horizontal lines.
+\\
+\end{tabular} % Our tabular environment ends here.
+
+\vspace*{0.3cm} % Now we want to add some vertical space in between the line and our title.
+
+\begin{center} % Everything within the center environment is centered.
+	{\Large \bf Graded Assignment: Week 6} % <---- Don't forget to put in the right number
+	\vspace{2mm}
+	
+        % YOUR NAMES GO HERE
+	{\bf Jaidev Deshpande (Roll No: 21F1003751)} % <---- Fill in your names here!
+		
+\end{center}  
+
+\vspace{0.4cm}
+
+\begin{enumerate}
+\item By the Binomial theorem, the polynomial can be expanded as:
+	$$ (x + 2y)^7 = \binom{7}{0}x^{7}(2y)^{0} + \binom{7}{1}x^{6}(2y)^{1} +
+		\binom{7}{2}x^{5}(2y)^{2} + \dots \binom{7}{0}x^{0}(2y)^{7}
+	$$
+	We are interested in the third term, i.e.
+	$$
+		\binom{7}{2}x^{5}(2y)^{2} = \frac{7 \times 6}{2}x^{5}4y^{2}
+		= 84x^{5}y^{2}
+	$$
+		So the coefficient is (b) = 84.
+
+\item The fraction $\frac{225}{157}$ can be expanded with continued fractions as follows:
+
+	$$
+	\frac{225}{157} = 1 + \frac{1}{2 + \frac{1}{3 + \frac{1}{4 + \frac{1}{5}}}}
+	$$
+
+	Thus, $a = 2, b = 3, c = 4$ and $d = 5$.\\
+	$\therefore a + b + c + d = 14$
+\item
+	\begin{enumerate}
+		\item $f(x) = x^{10} + x^9 + x^5 + x + 1$\\
+		Computing $x^{10} f(x^{-1})$,
+		$$
+		x^{10} f(x^{-1}) = x^{10}\Big(\frac{1}{x^{10}} + \frac{1}{x^9} + \frac{1}{x^5} + \frac{1}{x} + 1\Big)
+		$$
+		$$ = 1 + x + x^5 + x^9 + x^{10}$$
+		$$ = f(x) $$
+		$\therefore f(x)$ is self-reciprocal.
+		\item $f(x) = x^{11} + x^8 + x^5 + x^3 + 1$\\
+		Computing $x^{11} f(x^{-1})$,
+		$$
+		x^{11} f(x^{-1}) = x^{11}\Big(\frac{1}{x^{11}} + \frac{1}{x^8} + \frac{1}{x^5} + \frac{1}{x^3} + 1\Big)
+		$$
+		$$ = 1 + x^3 + x^6 + x^8 + x^{11}$$
+		$$ \neq f(x) $$
+		$\therefore f(x)$ is \textbf{not} self-reciprocal.
+	\end{enumerate}
+\item The degree of the Poincaré polynomial of is the highest number of inversions that are possible in a permutation. For Perm(6), the highest number of inversions possible are 5 + 4 + 3 + 2 + 1 = 15.\\
+	$\therefore$ the degree of $f_{6}(x)$ of Perm(6) is \textbf{15}.
+
+\item Consider the Poincaré polynomial $f_{5}(x)$ of Perm(5).
+	$$
+	f_{5}(x) = (1 + x + x^2 + x^3 + x^4)(1 + x + x^2 + x^3)(1 + x + x^2)(1 + x)
+	$$
+	The number of permutations that have exactly 8 inversions is the same as the coefficient of $x^8$ in $f_{5}(x)$.\\
+	To find the coefficient of $x^8$, we have to pick powers of $x$ from the four terms (not necessarily from all of them) above such that their sum is 8.\\
+	For simplicity, let's write the four terms of the Poincaré polynomial in rows:
+	$$
+	\begin{array}{ccccc}
+		x^0 & x^1 & x^2 & x^3 & x^4\\
+		x^0 & x^1 & x^2 & x^3\\
+		x^0 & x^1 & x^2 & \\
+		x^0 & x^1 & & \\
+	\end{array}
+	$$
+	We now need to pick zero or more powers of $x$ from each row such that their sum is 8.\\
+	This problem is equivalent to finding the number of ways of writing 8 as a sum of four integers $\{a, b, c, d\} \subset \mathbb{Z}$  such that:
+
+	\begin{enumerate}
+		\item $0 \leq a \leq 4$
+		\item $0 \leq b \leq 3$
+		\item $0 \leq c \leq 2$
+		\item $0 \leq b \leq 1$
+	\end{enumerate}
+	This can be done in nine ways as follows:
+	$$8 = 4+3+1+0$$
+	$$8 = 4+3+0+1$$
+	$$8 = 4+2+2+0$$
+	$$8 = 4+2+1+1$$
+	$$8 = 4+1+2+1$$
+	$$8 = 3+3+2+0$$
+	$$8 = 3+3+1+1$$
+	$$8 = 3+2+2+1$$
+	$$8 = 2+3+2+1$$
+	$\therefore$ the number of permutations of $\sigma \in$ Perm(5) that have exactly 8 inversions is \textbf{9}.
+\item
+	\begin{enumerate}
+	\item The student needs to walk exactly 8 blocks east, and 10 blocks north to reach the school.\\
+	The number of total paths is
+	$$
+	\binom{10 + 8}{8} = \frac{18!}{8!10!} = 43758
+	$$
+	\item Let us assume that the friend also prefers the shortest path, i.e. they never walk west or south. Also, we do \textit{not} care about how the friend reaches the meeting point, i.e. in this problem, we \textbf{do not} count the number of ways in which the friend reaches the meeting point. We care \textit{only} about how many paths the student herself can follow.\\
+	Let's denote the meeting point with the pair $(x, y)$, which is located at $x$ blocks east and $y$ blocks north of the student's house.
+	Because of the shortest path assumption, $(x, y)$ should lie strictly within the northeast quadrant of the grid. Formally, this means the meeting point is $(x, y)$ such that $4 \leq x \leq 8$ and $5 \leq y \leq 10$.
+	Now, the number of paths that pass through $(x, y)$ is the product of the number of paths from the origin to $(x, y)$ and the number of paths from $(x, y)$ to the school. Suppose we denote this with $p_{x,y}$, i.e.\\
+	$p_{x, y} := $ \# of paths from the origin to the school which pass through point $(x, y)$ on the grid.\\
+	$$\therefore p_{x, y} = \binom{x+y}{x} \times \binom{18-x-y}{8-x}$$
+	Thus, the total number of desired paths is:
+	$$ \sum_{x=4}^{8}\sum_{y=5}^{10}\binom{x+y}{x} \times \binom{18-x-y}{8-x} $$
+	\end{enumerate}
+
+\item
+	\begin{enumerate}
+	\item $t_1 = 3100210$\\
+		$t_2 = 4200210$
+	\item $\sigma' = 3427165$
+	\item From $t_1$, we see that sorting $\sigma = 3241765$ with simple transpositions should be possible in 7 steps, as follows:
+		\begin{enumerate}
+			\item swap 3 and 2 to get 2341765
+			\item swap 4 and 1 to get 2314765
+			\item swap 3 and 1 to get 2134765
+			\item swap 2 and 1 to get 1234765
+			\item swap 7 and 6 to get 1234675
+			\item swap 7 and 5 to get 1234657
+			\item swap 6 and 5 to get 1234567
+		\end{enumerate}
+	\end{enumerate}
+
+\end{enumerate}
+\end{document}
