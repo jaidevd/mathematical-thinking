@@ -1,0 +1,137 @@
+\documentclass[a4paper,12pt]{article} % This dfines the style of your paper
+\usepackage[top = 2.5cm, bottom = 2.5cm, left = 2.5cm, right = 2.5cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{multirow} % Multirow is for tables with multiple rows within one cell.
+\usepackage{booktabs} % For even nicer tables.
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\setlength{\parindent}{0in}
+\usepackage{float}
+\usepackage{fancyhdr}
+\pagestyle{fancy} % With this command we can customize the header style.
+\fancyhf{} % This makes sure we do not have other information in our header or footer.
+
+\lhead{\footnotesize Graded Assignment: Week 10}% \lhead puts text in the top left corner. \footnotesize sets our font to a smaller size.
+
+\rhead{\footnotesize Jaidev Deshpande (Roll No: 21F1003751)} %<---- Fill in your lastnames.
+\cfoot{\footnotesize \thepage}
+
+\begin{document}
+
+\thispagestyle{empty} % This command disables the header on the first page.
+
+\begin{tabular}{p{15.5cm}} % This is a simple tabular environment to align your text nicely
+{\large \bf Mathematical Thinking} \\
+BS In Data Science \& Applications  \\ Sept 2023 Term  \\ IIT Madras\\
+\hline % \hline produces horizontal lines.
+\\
+\end{tabular} % Our tabular environment ends here.
+
+\vspace*{0.3cm} % Now we want to add some vertical space in between the line and our title.
+
+\begin{center} % Everything within the center environment is centered.
+	{\Large \bf Graded Assignment: Week 10} % <---- Don't forget to put in the right number
+	\vspace{2mm}
+
+        % YOUR NAMES GO HERE
+	{\bf Jaidev Deshpande (Roll No: 21F1003751)} % <---- Fill in your names here!
+
+\end{center}
+
+\vspace{0.4cm}
+
+\begin{enumerate}
+  \item \[\lim_{x\to 9} \frac{12 \sin(\sqrt{x} - 3)}{x - 9} = 12 \lim_{x\to 9} \frac{\sin(\sqrt{x} - 3)}{x - 9} \]
+    $$ = 12 \lim_{x\to 9} \frac{\sin(\sqrt{x} - 3)}{(\sqrt{x} - 3)(\sqrt{x} + 3)}$$
+    The limit can be factorized as:
+    $$ = 12 \Big[\lim_{x\to 9} \frac{\sin(\sqrt{x} - 3)}{(\sqrt{x} - 3)} \times \lim_{x\to 9} \frac{1}{(\sqrt{x} + 3)} \Big]$$
+    (Since both the limits in the factorization exist, the factorization is valid). The limit is, therefore,
+    $$ 12 \Big[1 \times \frac{1}{6}\Big] = 2$$
+    $$ \therefore \lim_{x\to 9} \frac{12 \sin(\sqrt{x} - 3)}{x - 9} = 2$$
+  \item
+    \begin{enumerate}
+      \item \textbf{Incorrect.} Such a function can have more than one root, as long as the number of roots is odd.
+      \item \textbf{Incorrect.} Such a function can have roots, as long as the number of roots is even.
+      \item \textbf{Correct.} Suppose we have $f(x) = \cos{x} - \sin{x} - x - 2$. Then the roots of $f(x)$ are the solutions for the given equation. Evaluating $f(x)$ at the ends of the interval $\Big[\frac{-\pi}{2}, \frac{\pi}{2}\Big]$ gives us $\frac{\pi}{2} - 1$ and $-(\frac{\pi}{2} + 3)$ respectively. Since their signs are opposite, there must be at least one root in the interval.
+      \item \textbf{Incorrect.} Counterexample: $sin(\frac{1}{x})$ is bounded between $[-1, 1]$ but is not defined at $x = 0$, and hence is not continuous.
+    \end{enumerate}
+  \item \[ \Phi = \frac{1 + \sqrt{5}}{2}, \phi = \frac{\sqrt{5} - 1}{2} \]
+    \begin{enumerate}
+      \item \textbf{Incorrect.} $\phi^2 \neq 1 - \Phi$.
+      \item \textbf{Incorrect.} $\phi^2 \neq 1 + \phi$.
+      \item \textbf{Incorrect.} $\phi^{20} \neq \frac{\phi^{21}}{\Phi}$
+      \item \textbf{Correct.} $\phi^{20} = \frac{1 + \phi}{\Phi^{21}}$
+    \end{enumerate}
+  \item Suppose the limit exists. Let's call it $L$, i.e.
+    $$L = \lim_{n \to \infty}\frac{t_{n+1}}{t_n}$$
+
+    By the given recurrence relation,
+
+    $$ t_{n+1} = 3t_n + 4t_{n - 1} $$
+    $$ \therefore L = \lim_{n \to \infty}\frac{3t_n + 4t_{n - 1}}{t_n}$$
+    $$ \therefore L = 3 + 4\lim_{n \to \infty}\frac{t_{n - 1}}{t_n}$$
+
+    Now, note that the second term contains the reciprocal of $L$, i.e
+
+    $$ \lim_{n \to \infty}\frac{t_{n - 1}}{t_n} = \frac{1}{L}$$
+    $$ \therefore L = 3 + \frac{4}{L}$$
+    $$ \therefore L^2 - 3L - 4 = 0$$
+
+    The roots of this quadratic equation are $-1$ and $4$. Since the sequence contains only positive numbers, the ratio of two successive numbers, and therefore their limit cannot be negative.
+
+    Thus, the limit is $L = 4$.
+
+  \item Do later
+  \item $f(x) = x^5 - 3x^3 + 1$
+    Being a polynomial, $f(x)$ is continuous everywhere. Further, $f(0) = 1$ and $f(1) = -1$.
+    Thus, the $f(x)$ must cross the X-axis at least once in the interval $[0, 1]$.
+    Therefore, by IVT, there exists a root of $f(x)$ in the interval $[0, 1]$.
+  \item $f, g: [0, 1] \rightarrow \mathbb{R}$ are continuous at $x_0$. Do later.
+  \item
+    \begin{enumerate}
+      \item To show: $\Phi^2 = 1 + \Phi$\\
+        LHS = $\Phi^2$
+        $$ = \frac{1 + \sqrt{5}}{2} \times \frac{1 + \sqrt{5}}{2} $$
+        $$ = \frac{6 + 2\sqrt{5}}{4} $$
+        $$ = \frac{3 + \sqrt{5}}{2} $$
+        RHS = $1 + \Phi$\\
+        $$ = 1 + \frac{1 + \sqrt{5}}{2} $$
+        $$ = \frac{3 + \sqrt{5}}{2} $$
+        $$ \therefore \Phi^2 = 1 + \Phi$$
+      \item To show: $\Phi^{n+1} = F_{n+1}\Phi + F_{n}$\\
+        Proof by Induction:\\
+        \begin{enumerate}
+          \item Base case (n = 1)\\
+            To show: $\Phi^{2} = F_{2}\Phi + F_{1}$\\
+            Since $F_2 = F_1 = 1$, this amounts to showing that $\Phi^2 = \Phi + 1$\\.
+            This is shown in the previous result.\\
+            $\therefore$ base case is true.
+          \item Inductive step: Assuming that $\Phi^{n+1} = F_{n+1}\Phi + F_{n}$\\
+            Multiplying both sides by $\Phi$,\\
+            $$\Phi^{n+2} = F_{n+1}\Phi^2 + F_{n}\Phi$$
+
+            Now, by definition of the Fibonacci sequence, $F_{n}$ can be written as follows:
+            $$ F_{n} = F_{n+2} - F_{n + 1}$$
+
+            Substituting these values in the equation, we get:
+            $$\Phi^{n+2} = F_{n+1}\Phi^2 + \Phi(F_{n+2} - F_{n+1})$$
+            $$ = F_{n+1}\Phi^2 - F_{n+1}\Phi + \Phi F_{n+2} $$
+            $$ = F_{n+1}(\Phi^2 - \Phi) + \Phi F_{n+2}$$
+            We know from the previous result that $\Phi^2 - \Phi = 1$. Therefore,
+            $$\Phi^{n+2} = F_{n+2}\Phi + F_{n+1}$$
+
+            Thus, if
+              $$\Phi^{n+1} = F_{n+1}\Phi + F_{n}$$
+            then
+              $$\Phi^{n+2} = F_{n+2}\Phi + F_{n+1}$$
+
+            $\therefore$ by induction, the result holds $\forall n \in \mathbb{N}$.\\
+            $\blacksquare$
+        \end{enumerate}
+    \end{enumerate}
+\end{enumerate}
+\end{document}
