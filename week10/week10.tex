@@ -85,12 +85,48 @@ BS In Data Science \& Applications  \\ Sept 2023 Term  \\ IIT Madras\\
 
     Thus, the limit is $L = 4$.
 
-  \item Do later
+  \item $f:[0, 2] \rightarrow \mathbb{R}$ such that $f(0) = f(2)$\\
+    Consider a function $g:[0, 1] \rightarrow \mathbb{R}$ such that $g(x) = f(x) - f(x + 1)$.\\
+    $$\therefore g(0) = f(0) - f(1)$$
+    and,
+    $$ g(1) = f(1) - f(2)$$
+    Since $f(0) = f(2)$, $$g(0) = -g(1)$$
+
+    By IVT, there must be a root of $g(x)$ in $[0, 1]$. Let's call it $p$, i.e.
+
+    $$ g(p) = 0 $$
+    $$\therefore f(p) - f(p + 1) = 0$$
+    $$\therefore f(p) = f(p + 1)$$
+
+    Thus, $\exists p \in [0, 1]$ such that $f(p) = f(p + 1)$.\\
+    $\blacksquare$
   \item $f(x) = x^5 - 3x^3 + 1$
     Being a polynomial, $f(x)$ is continuous everywhere. Further, $f(0) = 1$ and $f(1) = -1$.
     Thus, the $f(x)$ must cross the X-axis at least once in the interval $[0, 1]$.
     Therefore, by IVT, there exists a root of $f(x)$ in the interval $[0, 1]$.
-  \item $f, g: [0, 1] \rightarrow \mathbb{R}$ are continuous at $x_0$. Do later.
+  \item $f, g: [0, 1] \rightarrow \mathbb{R}$ are continuous at $x_0$.\\
+    Let's define the product function as $h(x) = f(x)g(x)$.\\
+
+    Then, for $h(x)$ to be continuos at $x_0$, the following limit must exist:
+    $$ \lim_{x \to x_0}h(x) = h(x_0) $$
+
+    The LHS is
+    $$ \lim_{x \to x_0}h(x) = \lim_{x \to x_0}(f(x)g(x))$$
+
+    By the definition of continuity, the following limits exist:
+
+    $$ \lim_{x \to x_0}f(x) = f(x_0) $$
+    $$ \lim_{x \to x_0}g(x) = g(x_0) $$
+
+    Thus, the limit of $h(x)$ at $x_0$ can be written as:
+    $$ \lim_{x \to x_0}h(x) = \lim_{x \to x_0}f(x).\lim_{x \to x_0}g(x) $$
+    $$  = f(x_0).g(x_0) $$
+    $$  = h(x_0) $$
+    $$ \therefore \lim_{x \to x_0}h(x) = h(x_0) $$
+
+    $\therefore h(x)$ is continuous at $x_0$.\\
+    $\blacksquare$
+
   \item
     \begin{enumerate}
       \item To show: $\Phi^2 = 1 + \Phi$\\
